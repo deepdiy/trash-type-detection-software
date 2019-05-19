@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>capture</folder>
+	<filename>bottle (12).jpg</filename>
+	<path>C:\onedrive\program\rubbish_bin\dataset\capture\bottle (12).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>625</xmin>
+			<ymin>325</ymin>
+			<xmax>1070</xmax>
+			<ymax>689</ymax>
+		</bndbox>
+	</object>
+</annotation>

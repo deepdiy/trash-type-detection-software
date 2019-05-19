@@ -1,0 +1,8 @@
+cnn_keras/*
+dataset/dataset-resized/*
+ref/*
+venv/*
+*.pyc
+draft/*
+inception/*
+object_detection/*
