@@ -1,0 +1,6 @@
+tensorflow
+kivy
+opencv-python
+rootpath
+kivy.deps.sdl2
+kivy.deps.glew
