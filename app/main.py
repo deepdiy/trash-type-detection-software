@@ -35,7 +35,7 @@ class MainWindow(BoxLayout):
 		self.graph.as_default()
 		self.sess=tf.Session(graph=self.graph)
 		self.bind(timer=lambda x,y:Clock.schedule_once(self.update,0.0001))
-		self.bind(state=self.play_sound)
+		self.bind(state=self.on_state_changed)
 		self.update()
 
 	def get_graph(self):
@@ -59,6 +59,12 @@ class MainWindow(BoxLayout):
 		image = draw_boxes(image, out_scores, out_boxes, out_classes, self.class_names, colors)
 		return image
 
+	def on_state_changed(self,*arg):
+		if self.state==0 or len(self.pool)<20:
+			return
+		self.play_sound()
+		self.save_detection_result()
+
 	# @concurrent.thread
 	def play_sound(self,*arg):
 		sound = SoundLoader.load(os.sep.join([self.bundle_dir,'audio',str(self.state)+'.wav']))
@@ -66,8 +72,8 @@ class MainWindow(BoxLayout):
 			sound.play()
 
 	def add_result_to_pool(self,result):
-		if len(self.pool)>30:
-			self.pool=self.pool[-30:]
+		if len(self.pool)>50:
+			self.pool=self.pool[-50:]
 		if list(result)==[]:
 			result=[0]
 		self.pool+=list(result)
@@ -105,7 +111,17 @@ class MainWindow(BoxLayout):
 			feed_dict={image_tensor: frame_expanded})
 
 		self.draw_box(frame,boxes,scores,classes)
+		self.boxes=boxes
+		self.scores=scores
+		self.classes=classes
 		return frame
+
+	def save_detection_result(self,*args):
+		boxes, scores, classes = np.squeeze(self.boxes), np.squeeze(self.scores), np.squeeze(self.classes).astype(np.int32)
+		out_scores, out_boxes, out_classes = non_max_suppression(scores, boxes, classes)
+		colors = generate_colors(self.class_names)
+		image = draw_boxes(self.frame, out_scores, out_boxes, out_classes, self.class_names, colors)
+		cv2.imwrite('../dataset/predicted/'+str(time.time())+'.jpg',image)
 
 	def save_img(self,*args):
 		cv2.imwrite('../dataset/capture/'+str(time.time())+'.jpg',self.frame)
