@@ -6,3 +6,4 @@ venv/*
 draft/*
 inception/*
 .git
+dataset/predicted/*
