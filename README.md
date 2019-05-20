@@ -10,12 +10,12 @@ Classify trash by computer vision. A ssd-mobilenet based deep learning model and
 ![demo2](https://i.imgur.com/HYl1Z2c.jpg)
 
 # Installation
-```
+```python
 pip install -r requirements.txt
 ```
 
 # Run App
-```
+```python
 python app/main.py
 ```
 
@@ -25,7 +25,7 @@ python app/main.py
 2. Click `Capture` button in window
 
 # Training model
-[follow this instruction](https://github.com/deepdiy/trash-type-detection-software/tree/master/tf_ssd_mobilenet
+[Follow this instruction](https://github.com/deepdiy/trash-type-detection-software/tree/master/tf_ssd_mobilenet)
 
 # Use new model
 put `frozen_inference_graph.pb` in `/app/model`
