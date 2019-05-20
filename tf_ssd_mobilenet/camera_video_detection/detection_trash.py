@@ -108,17 +108,7 @@ def run():
 
                 draw_box(frame,boxes,scores,classes)
 
-                # scores = np.squeeze(scores)
-                # boxes = np.squeeze(boxes)
-                #
-                # for x in range(boxes.shape[0]):
-                #     try:
-                #         score = scores[x]
-                #     except (IndexError, NameError):
-                #         score = None
-                #     if score and score > SCORE_THRESHOLD:
-                #         frame = resize_heart(frame, heart, boxes[x])
-
+               
                 cv2.imshow('Heart Gesture Detection (Press "q" to close.)',
                            frame)
                 if cv2.waitKey(25) & 0xFF == ord('q'):
