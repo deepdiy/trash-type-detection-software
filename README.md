@@ -25,7 +25,7 @@ python app/main.py
 2. Click `Capture` button in window
 
 # Training model
-![follow this instruction](https://github.com/deepdiy/trash-type-detection-software/tree/master/tf_ssd_mobilenet
+[follow this instruction](https://github.com/deepdiy/trash-type-detection-software/tree/master/tf_ssd_mobilenet
 
 # Use new model
 put `frozen_inference_graph.pb` in `/app/model`
