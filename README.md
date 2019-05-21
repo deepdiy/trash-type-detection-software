@@ -27,7 +27,7 @@ python app/main.py
 # Training model
 [Follow this instruction](https://github.com/deepdiy/trash-type-detection-software/tree/master/tf_ssd_mobilenet)
 
-The notebook for training is here:
+The notebook for training is here, you can open the notebook in Google Colab:
 https://github.com/deepdiy/trash-type-detection-software/blob/master/tf_ssd_mobilenet/tensorflow_object_detection_training_colab_trash_detection.ipynb
 
 # Use new model
